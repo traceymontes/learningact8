@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circle Calculator</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0ebeb;
+  }
+
+  .calculator {
+    background-color: pink;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .input-group {
+    margin-bottom: 10px;
+  }
+
+  .results {
+    margin-top: 20px;
+  }
+
+  .results p {
+    margin-bottom: 5px;
+  }
+
+  .results span {
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+<div class="calculator">
+  <h1>Circle Calculator</h1>
+  <div class="input-group">
+    <label for="radius">Radius:</label>
+    <input type="number" id="radius">
+  </div>
+  <div class="results">
+    <p>Area: <span id="areaResult"></span></p>
+    <p>Circumference: <span id="circumferenceResult"></span></p>
+    <p>Diameter: <span id="diameterResult"></span></p>
+    <p>Radius: <span id="radiusResult"></span></p>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const radiusInput = document.getElementById('radius');
+    const areaResult = document.getElementById('areaResult');
+    const circumferenceResult = document.getElementById('circumferenceResult');
+    const diameterResult = document.getElementById('diameterResult');
+    const radiusResult = document.getElementById('radiusResult');
+
+    radiusInput.addEventListener('input', function() {
+      const radius = parseFloat(radiusInput.value);
+      const area = Math.PI * Math.pow(radius, 2);
+      const circumference = 2 * Math.PI * radius;
+      const diameter = 2 * radius;
+
+      areaResult.textContent = area.toFixed(2);
+      circumferenceResult.textContent = circumference.toFixed(2);
+      diameterResult.textContent = diameter.toFixed(2);
+      radiusResult.textContent = radius.toFixed(2);
+    });
+  });
+</script>
+</body>
+</html>
